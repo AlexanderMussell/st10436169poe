@@ -1,4 +1,4 @@
-# st10436169poepart1
+# st10436169poe
 
 ## Project Overview
 This project is Part 1 of a web development assignment focused on building the foundation of a multi-page website using HTML.
@@ -161,6 +161,60 @@ Possible future enhancements include:
 - Adding social media links
 - Improving accessibility and SEO
 
+---
+## Change Log
+
+1. HTML Structure improvements:
+
+- Added lang="en" attribute to all HTML documents for better accesibility and SEO.
+-Added:
+      -<meta charset="UTF-8">
+      -<meta name="viewport" content="width=device-width, initial-scale=1.0">
+-Wrapped all page content inside a semantic:
+      -<main class="container">
+
+2. Consistent Page Layout
+
+-Standardised layout across:
+
+Home (index.html)
+About (about.html)
+Services (services.html)
+Contact (contactus.html)
+FAQ (faqs.html)
+
+-Ensured every page contains:
+
+Navigation bar
+Main heading (<h1>)
+Structured headings (h2, h3)
+Consistent spacing and content flow
+
+3. Navigation improvements
+
+-Kept a consistent navigation menu on all pages.
+-Ensured that all links point to their relevant destinations.
+
+4. Image Accessibility Improvements
+
+-Improved image naming.
+-Took out image sizes and apllied CSS.
+
+5. Services Page
+
+-Converted into a structured layout.
+-Each service is grouped into separate visual sections.
+
+6. Responsive Design Support
+
+-Linked CSS style sheet.
+
+7. CSS Enhancements
+
+-Added gradient background
+-Added typography styling
+-Navigation hover effetcs added.
+-CSS Grid layouts
 ---
 
 ## References
