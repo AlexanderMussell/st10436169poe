@@ -7,6 +7,8 @@
     <!-- Title displayed in the browser tab -->
     <title>About us | Matthew Snyman's Music School</title>
     
+    <meta name="description" content="Learn about Matthew Snyman's Music School, our mission, teaching approach, and our commitment to quality music education in Cape Town.">
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -15,7 +17,7 @@
     <main class="container">
 
         <!-- Navigation Menu (links to all main pages) -->
-        <nav>
+        <nav aria-label="Main Navigation">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -24,93 +26,156 @@
         </nav>
 
         <!-- Main heading for the About page -->
-        <h1>About us</h1>
+        <h1>About Matthew Snyman's Music School</h1>
 
-        <!-- Image representing music theme -->
-        <img src="img/pianokeys-musicnotes.jpg" alt="Piano keys and music notes">
-        <!-- 'src' = image path, 'height' = size, 'alt' = accessibility description -->
-        
+        <!-- Gallery Section -->
+         <section>
+            <h2>Music School Gallery</h2>
+
+            <div class="gallery">
+
+            <!-- Image representing music theme -->
+            <img src="img/pianokeys-musicnotes.jpg" alt="Piano keys with music notes representing music education" class="gallery-image">
+            <!-- 'src' = image path, 'height' = size, 'alt' = accessibility description -->
+            
+            <img src="img/matthewspicture.jpeg" alt="Matthew the music instructor teaching students" class="gallery-image">
+
+            </div>
+        </section>
+
         <!-- Organisation background section -->
+         <section>
         <h2>Our Story</h2>
         <p>
             Matthew’s Music School was founded in 2024 with a simple mission:
             to make quality music education accessible, enjoyable, and inspiring for everyone.
             Based in Athlone, Cape Town, the school was created to provide students with a supportive environment where they can grow musically at their own pace.
-        </p> 
+        </p>
+        </section>
         
-        <!-- Mission statement section -->
-        <h2>Our Mission</h2>
-        <p>
-            To empower students through music by building confidence, 
-            creativity, and technical skill through enjoyable learning experiences.
-        </p>
+        <!-- Accordion Section -->
 
-        <!-- Vision statement section -->
-        <h2>Our Vision</h2>
-        <p>
-            To become a trusted and respected music school in Cape Town and 
-            beyond, known for nurturing talent and fostering a lifelong love for music.
-        </p>
+        <section class="accordion">
 
-        <!-- Teaching philosophy section -->
-        <h2>Our Teaching Approach</h2>
-        <p>
-            At Matthew’s Music School, we believe that every student learns 
-            differently. That’s why we:
-        </p>
+            <h2 class="accordion-title">Our Mission</h2>
+            <div class="accordion-content" style="display:none;">
 
-        <!-- Unordered list of teaching methods -->
-        <ul>
-            <li>Tailor lessons to each student’s goals and ability</li>
-            <li>Balance practical playing with music theory</li>
-            <li>Encourage creativity and self-expression</li>
-            <li>Focus on building confidence through progress</li>
-        </ul>
+                <p>
+                    To empower students through music by building confidence, 
+                    creativity, and technical skill through enjoyable learning experiences.
+                </p>
+            </div>
 
-        <!-- Supporting paragraph -->
-        <p> 
-            Our goal is not just to teach music, but to help students enjoy the learning process.
-        </p>
+            <h2 class="accordion-title">Our Vision</h2>
+            <div class="accordion-content" style="display:none;">
 
-        <!-- Instructor introduction section -->
+                <p>
+                    To become a trusted and respected music school in Cape Town and 
+                    beyond, known for nurturing talent and fostering a lifelong love for music.
+                </p>
+            </div>
+
+            <h2 class="accordion-title">Our Teaching Approach</h2>
+            <div class="accordion-content" style="display:none;">
+
+                <p>
+                Every student learns differently. Lessons are designed around each learner's goals and ability.
+                </p>
+
+                <!-- Unordered list of teaching methods -->
+                <ul>
+                    <li>Tailored lessons to each student’s goals and ability</li>
+                    <li>Balance practical playing with music theory</li>
+                    <li>Encourage creativity and self-expression</li>
+                    <li>Focus on building confidence through progress</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+        <!-- Instructor -->
+    <section>
         <h2>Meet the Instructor</h2>
 
-        <!-- Picture of Instructor -->
-        <img src="img/matthewspicture.jpeg" alt="Instructor"> 
-        <!-- 'src' = image path, 'height' = size, 'alt' = accessibility description -->
-
         <p>
-            Matthew is a passionate music educator dedicated to helping students succeed. With a strong foundation in both practical performance and music theory, he creates lessons that are engaging, structured, and enjoyable.
+            Matthew is a passionate music educator dedicated to helping students succeed. 
+            With a strong foundation in both practical performance and music theory, 
+            he creates lessons that are engaging, structured, and enjoyable.
         </p>
+    </section>
 
-        <!-- Teaching methods section -->
-        <h2>Methods of Teaching:</h2>
-        <p>
-            We believe that every student learns differently. That’s why our lessons are:
-        </p>
-
-        <!-- List of teaching features -->
-        <ul>
-            <li>Tailored to individual skill levels and goals</li>
-            <li>Balanced between practical playing and music theory</li>
-            <li>Designed to be interactive and enjoyable</li>
-        </ul>
-
+    <!-- Difference -->
+    <section>
         <h2>What Makes Us Different?</h2>
-        <p>Unlike large institutions where students may feel overlooked, Matthew’s Music School focuses on personalised learning experiences. We build strong relationships with students and ensure every lesson is meaningful, interactive, and rewarding. Students are encouraged to ask questions, explore different musical styles, and develop confidence through consistent progress and encouragement.</p>
-        
-        <!-- Additional explanation -->
         <p>
-            Whether you want to play for fun, perform, or pursue formal music exams, we provide the guidance you need.
+            Unlike large institutions where students may feel overlooked, 
+            Matthew’s Music School focuses on personalised learning experiences. 
+            We build strong relationships with students and ensure every lesson is meaningful, interactive, and rewarding. 
+            Students are encouraged to ask questions, explore different musical styles, and develop confidence through consistent progress and encouragement.
         </p>
+    </section>
         
-        <!-- Closing section -->
+    <!-- Call to action -->
+    <section>
         <h2>Join Our Community</h2>
+        
         <p> 
-            Whether you're learning for fun or pursuing music seriously, Matthew’s Music School is here to guide you every step of the way. Let’s make music together. 🎶
+            Whether you are learning music for fun, performance,
+            or formal exams, Matthew’s Music School is ready to guide you.
+            Let’s make music together 🎶
         </p>
+
+        <p>
+            Interested in Lessons?
+            <a href="services.html">View our services</a>
+            or
+            <a href="contactus.html">Contact us today</a>
+        </p>
+    </section>
 
 </main>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+    <img id="lightbox-image" src="" alt="Expanded gallery image">
+</div>
+
+<!-- JavaScript -->
+<script>
+    // Accordion functionality
+    const accordionTitles = document.querySelectorAll(".accordion-title");
+
+    accordionTitles.forEach(title => {
+        title.addEventListener("click", function() {
+            const content = this.nextElementSibling;
+
+            // Toggle display
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    });
+
+    // Lightbox Functionality
+    const images = document.querySelectorAll(".gallery-image");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+
+    images.forEach(image => {
+        image.addEventListener("click", function () {
+            lightbox.style.display = "flex";
+            lightboxImage.src = this.src;
+        });
+    });
+
+    lightbox.addEventListener("click", function () {
+        lightbox.style.display = "none";
+    })
+
+</script>
 
 </body>
 </html>

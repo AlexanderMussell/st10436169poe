@@ -3,10 +3,62 @@
 <head>  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+    
+    <!-- SEO Improvements -->
+    <meta name="description" content="Music School Services: Guitar, Piano, Music Theory, Online and In-Person lessons in Cape Town.">
+    <meta name="keywords" content="music lessons, guitar lessons, piano lessons, Cape Town music school, online music lessons">
+    <meta name="author" content="Matthew Snyman's Music School"> 
+
     <title>Services | Matthew Snyman's Music School</title>
         
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Leaflet Map Library -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <style>
+        
+        .service-box {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Lightbox */
+        #lightbox {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #lightbox img {
+            max-width: 80%;
+            max-height: 80%;
+        }
+
+        /* Map */
+        #map {
+            height: 300px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +66,7 @@
 <main class="container">
 
     <!-- Navigation Menu (links to all main pages) -->
-    <nav>
+    <nav aria-label="Main Navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
@@ -25,103 +77,160 @@
     <!-- Main heading -->
     <h1>Services</h1>
 
-        <!-- Image representing music practice -->
-    <img src="img/musickeypianopractice.jpg" alt="Piano practice lesson">
+    <!-- Search Filter -->
+    <input type="text" id="searchInput" placeholder="Search services...">
 
+    <!-- IMAGE -->
+
+    <img src="img/musickeypianopractice.jpg" alt="Piano practice lesson" id="mainImage">
+
+    <!-- LIGHTBOX -->
+    <div id="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImg">
+    </div>
+
+    <!-- SERVICES -->
     <div class="services-grid">
 
         <div class="service-box">
 
         <!-- Guitar lessons section -->
         <h2>Guitar Lessons</h2>
-
         <p>
             Learn acoustic guitar with lessons suited to all levels:
         </p>
-
         <ul>
             <li>Beginner to advanced lessons</li>
             <li>Chords, strumming, and techniques</li>
             <li>Learn your favourite songs</li>
             <li>Music theory basics</li>
         </ul>
-
     </div>
 
     <div class="service-box">
-
-        <!-- Piano lessons section -->
         <h2>Piano Lessons</h2>
-
         <p>
             Develop strong foundational and advanced piano skills:
         </p>
-
         <ul>
             <li>Note reading and hand coordination</li>
             <li>Classical and modern styles</li>
             <li>Technique, rhythm, and expression</li>
         </ul>
-
     </div>
 
     <div class="service-box">
-
-    <!-- Guitar lessons section -->
         <h2>Music Theory Lessons</h2>
+        <p>
+            Understand the foundation behind music:
+        </p>
 
-    <p>
-        Understand the foundation behind music:
-    </p>
-
-    <ul>
-        <li>Notation and reading music</li>
-        <li>Scales, chords, and harmony</li>
-        <li>Exam preparation (if applicable)</li>
-    </ul>
-
+        <ul>
+            <li>Notation and reading music</li>
+            <li>Scales, chords, and harmony</li>
+            <li>Exam preparation (if applicable)</li>
+        </ul>
     </div>
 
     <div class="service-box">
-
-    <!-- Online lessons section -->
-    <h2>Online Lessons</h2>
-
-    <p>
-        Learn from anywhere with structured virtual sessions:
-    </p>
-
-    <ul>
-        <li>Live one-on-one lessons</li>
-        <li>Interactive teaching tools</li>
-        <li>Flexible scheduling</li>
-    </ul>
-
+        <h2>Online Lessons</h2>
+        <p>
+            Learn from anywhere with structured virtual sessions:
+        </p>
+        <ul>
+            <li>Live one-on-one lessons</li>
+            <li>Interactive teaching tools</li>
+            <li>Flexible scheduling</li>
+        </ul>
     </div>
 
     <div class="service-box">
-
-    <!-- In-person lessons section -->
-    <h2>In-Person Lessons (Contact us for address)</h2>
-    <p>
-        Enjoy face-to-face instruction in a comfortable learning environment.
-    </p>
-
-    <h2>Lesson Scheduling</h2>
-    <p>We aim to provide flexible scheduling options for students with busy school or work commitments.</p>
-    <p>Lesson availability may include:</p>
-    <ul>
-        <li>Weekday afternoons</li>
-        <li>Evenings</li>
-        <li>Selected weekends</li>
-        <li>Online booking arrangements</li>
-    </ul>
-
+        <h2>In-Person Lessons (Contact us for address)</h2>
+        <p>
+            Enjoy face-to-face instruction in a comfortable learning environment.
+        </p>
+        <h2>Lesson Scheduling</h2>
+        <p>We aim to provide flexible scheduling options for students with busy school or work commitments.</p>
+        <p>Lesson availability may include:</p>
+        <ul>
+            <li>Weekday afternoons</li>
+            <li>Evenings</li>
+            <li>Selected weekends</li>
+            <li>Online booking arrangements</li>
+        </ul>
     </div>
 
     </div>
+
+    <!-- MAP -->
+    <h2>Find Us</h2>
+    <div id="map"></div>
 
 </main>
+
+<script>
+
+// ==============================================
+//  Search Filter            
+// ==============================================
+
+const searchInput = document.getElementById("searchInput");
+const serviceBoxes = document.querySelectorAll(".service-box");
+
+searchInput.addEventListener("keyup", function () {
+    const value = this.value.toLowerCase();
+
+    serviceBoxes.forEach(box => {
+        const text = box.innerText.toLowerCase();
+        box.style.display = text.includes(value) ? "block" : "none";
+    });
+
+});
+
+// ==============================================
+// Lightbox Gallery
+// ==============================================
+
+const mainImage = document.getElementById("mainImage");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightboxImg");
+
+mainImage.addEventListener("click", function () {
+lightbox.style.display = "flex";
+lightboxImg.src = this.src;
+});
+
+function closeLightbox() {
+    lightbox.style.display = "none";
+}
+
+// ==============================================
+// Leaflet Map
+// ==============================================
+
+const map = L.map('map').setView([-33.9249, 18.4241], 13);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+}).addTo(map);
+
+L.marker([-33.9249, 18.4241]).addTo(map)
+    .bindPopup('Music School Location (Cape Town)')
+    .openPopup();
+
+// ==============================================
+// DOM
+// ==============================================
+
+window.addEventListener("load", () => {
+    document.querySelectorAll(".service-box").forEach((box, i) => {
+        setTimeout(() => {
+            box.style.opacity = 1;
+            box.style.transform = "translateY(0)";
+        }, i * 150);
+    });
+});
+</script>
 
 </body>
 </html>
