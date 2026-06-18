@@ -164,57 +164,113 @@ Possible future enhancements include:
 ---
 ## Change Log
 
-1. HTML Structure improvements:
+### 1. HTML Structure Improvements
+- Added `lang="en"` attribute to all HTML documents for improved accessibility and SEO.
+- Included essential meta tags on all pages:
+  - `<meta charset="UTF-8">`
+  - `<meta name="viewport" content="width=device-width, initial-scale=1.0">`
+- Wrapped all page content inside semantic structure:
+  - `<main class="container">`
+- Improved overall HTML5 semantic structure across all pages.
 
-- Added lang="en" attribute to all HTML documents for better accesibility and SEO.
--Added:
-      -<meta charset="UTF-8">
-      -<meta name="viewport" content="width=device-width, initial-scale=1.0">
--Wrapped all page content inside a semantic:
-      -<main class="container">
+---
 
-2. Consistent Page Layout
+### 2. Consistent Page Layout
+- Standardised layout across all pages:
+  - Home (`index.html`)
+  - About (`about.html`)
+  - Services (`services.html`)
+  - Contact (`contactus.html`)
+  - FAQ (`faqs.html`)
+- Ensured each page includes:
+  - Navigation bar
+  - Main heading (`<h1>`)
+  - Structured subheadings (`<h2>`, `<h3>`)
+  - Consistent spacing and content flow
 
--Standardised layout across:
+---
 
-Home (index.html)
-About (about.html)
-Services (services.html)
-Contact (contactus.html)
-FAQ (faqs.html)
+### 3. Navigation Improvements
+- Maintained a consistent navigation menu across all pages.
+- Ensured all internal links correctly point to their respective pages.
+- Improved user navigation and site structure consistency.
 
--Ensured every page contains:
+---
 
-Navigation bar
-Main heading (<h1>)
-Structured headings (h2, h3)
-Consistent spacing and content flow
+### 4. Image Accessibility Improvements
+- Improved image `alt` text descriptions for better accessibility.
+- Organised and optimised image usage across pages.
+- Removed inline image sizing and moved styling to CSS for better maintainability.
 
-3. Navigation improvements
+---
 
--Kept a consistent navigation menu on all pages.
--Ensured that all links point to their relevant destinations.
+### 5. Services Page Enhancements
+- Converted services section into a structured card/grid layout.
+- Each service is now displayed in a separate visual block (`service-box`).
+- Improved readability and user experience.
 
-4. Image Accessibility Improvements
+---
 
--Improved image naming.
--Took out image sizes and apllied CSS.
+### 6. CSS Styling Enhancements
+- Added global CSS stylesheet (`style.css`) for consistent styling across all pages.
+- Implemented:
+  - Gradient background design
+  - Typography styling (headings, paragraphs, spacing)
+  - Navigation bar styling with hover effects
+  - CSS Grid layout for services section
+  - Responsive design for mobile and tablet devices
+- Improved visual hierarchy and overall UI consistency.
 
-5. Services Page
+---
 
--Converted into a structured layout.
--Each service is grouped into separate visual sections.
+### 7. JavaScript Functionality Added
+- Added interactive features:
+  - Search filter (Home + Services + FAQ pages)
+  - Accordion components for collapsible content
+  - Lightbox image viewer for gallery images
+  - Form validation on Contact page
+- Improved interactivity and user experience.
 
-6. Responsive Design Support
+---
 
--Linked CSS style sheet.
+### 8. SEO Enhancements
+- Added meta descriptions and keywords across all pages.
+- Improved page titles for better search engine indexing.
+- Created SEO-friendly structure using semantic HTML.
 
-7. CSS Enhancements
+---
 
--Added gradient background
--Added typography styling
--Navigation hover effetcs added.
--CSS Grid layouts
+### 9. robots.txt Implementation
+- Added `robots.txt` file to control search engine crawling.
+- Allowed all search engines to index the website.
+- Linked sitemap location for better SEO discovery.
+
+Example:
+
+User-agent: *
+Allow: /
+Sitemap: https://alexandermussell.github.io/st10436169poe/sitemap.xml
+
+
+---
+
+### 10. sitemap.xml Implementation
+- Created XML sitemap to help search engines understand website structure.
+- Included all main pages:
+  - Home
+  - About
+  - Services
+  - Contact
+  - FAQ
+- Assigned priority levels to pages for SEO ranking guidance.
+
+---
+
+### 11. Responsive Design Improvements
+- Added media queries for tablet and mobile devices.
+- Improved navigation layout for smaller screens.
+- Ensured content scales correctly across all devices.
+
 ---
 
 ## References
