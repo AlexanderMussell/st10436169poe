@@ -4,9 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- SEO -->
+    <meta name="description" content="Contact Matthew Snyman's Music School for music lessons, enquiries, and support. Get in touch via phone, email, or our contact form.">
+    <meta name="keywords" content="music school contact, guitar lessons contact, piano lessons Cape Town, music teacher contact">
+    <meta name="robots" content="index, follow">
+
     <title>Contact Us | Matthew Snyman's Music School</title>
         
     <link rel="stylesheet" href="css/style.css">
+
+<style>
+
+    .contact-form {
+        max-width: 600px;
+        margin-top: 20px;
+    }
+
+    .contact-form input,
+    .contact-form textarea,
+    .contact-form select {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+    }
+
+    .error {
+        color: red;
+        font-size: 0.9em;
+    }
+
+    .success {
+        color: green;
+        font-weight: bold;
+    }
+
+    /* Accordion */
+    .accordion {
+        background: #eee;
+        cursor: pointer;
+        padding: 10px;
+        margin-top: 10px;
+        border: none;
+        text-align: left;
+        width: 100%;
+        color: black;
+    }
+
+    .panel {
+        display: none;
+        padding: 10px;
+        background: #f9f9f9;
+    }
+
+</style>
 </head>
 
 <body>
@@ -14,7 +64,7 @@
 <main class="container">
 
     <!-- Navigation Menu (links to all main pages) -->
-    <nav>
+    <nav aria-label="Main Navigation">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
@@ -34,6 +84,11 @@
         Get in Touch!! We’d love to hear from you. Whether you have questions or are ready to start lessons, feel free to reach out.    
     </p>
 
+    <h2>Contact Details</h2>
+
+    <p><strong>Phone/WhatsApp:</strong> 987 654 3210</p>
+    <p><strong>Email:</strong> matthewsmusicschool@music.com</p>
+
     <!-- Operating hours section -->
     <h2>Operating Hours:</h2>
 
@@ -44,23 +99,108 @@
         <li>Sundays & Public Holidays: Closed</li>
     </ul>
 
-    <!-- Contact number section -->
-    <h2>Contact/WhatsApp number:</h2>
+    <!-- Accordion -->
+    <button class="accordion">Why Contact us?</button>
+    <div class="panel">
+       We respond within 24 hours and help with lesson bookings, pricing, and availability.
+    </div>
 
-    <p>
-        987 654 3210
-    </p>
+    <button class="accordion">Do we offer online lessons?</button>
+    <div class="panel">
+        Yes, we offer both in-person and online music lessons.
+    </div>
 
-    <h2>Email</h2>
+    <!-- Contact Form -->
+    <h2>Send us a message</h2>
 
-    <p>
-        matthewsmusicschool@music.com
-    </p>
+    <form class="contact-form" id="contactForm" action="mailto:matthewsmusicschool@music.com" method="POST">
+
+        <label>Name:</label>
+        <input type="text" id="name" required>
+
+        <label>Email:</label>
+        <input type="email" id="email" required>
+
+        <label>Phone:</label>
+        <input type="tel" id="phone" required>
+
+        <label>Subject:</label>
+        <select id="subject" required>
+            <option value="">Select</option>
+            <option value="General Enquiry">General Enquiry</option>
+            <option value="Pricing">Pricing</option>
+        </select>
+
+        <label>Message:</label>
+        <textarea id="message" rows="5" required></textarea>
+
+        <button type="submit">Send Message</button>
+
+        <p class="error" id="errorMsg"></p>
+        <p class="success" id="successMsg"></p>
+    </form>
+
+    <!-- Map -->
+    <h2>Find us</h2>
+
+    <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18..."
+        width="100%"
+        height="300"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy">
+    </iframe>
+
 
     <!-- Placeholder for future social media links -->
     <h2>Stay tuned for social media links</h2>
 
 </main>
+
+<!-- JavaScript-->
+<script>
+    //Form validation
+    document.getElementById("contactForm").addEventListener("submit", function(e){
+        e.preventDefault();
+
+        let errorMsg = document.getElementById("errorMsg");
+        let successMsg = document.getElementById("successMsg");
+
+        errorMsg.textContent = "";
+        successMsg.textContent = "";
+
+        let name = document.getElementById("name").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let phone = document.getElementById("phone").value.trim();
+        let subject = document.getElementById("subject").value;
+        let message = document.getElementById("message").value.trim();
+
+        if (!email.includes("@")){
+            errorMsg.textContent = "Please enter a valid email address.";
+            return;
+        }
+
+        successMsg.textContent = "Your message has been prepared successfully!";
+        this.reset();
+    });
+
+    // Accordion functionality
+    const acc = document.getElementsByClassName("accordion");
+
+    for (let i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function(){
+            this.classList.toggle("active");
+
+            let panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        })
+    }
+</script>
 
 </body>
 </html>
