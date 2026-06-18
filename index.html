@@ -4,10 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Home | Matthew Snyman's Music School</title>
+    <title>
+    Music Lessons | Matthew Snyman's Music School
+    </title>
+
+    <meta name="description" content="Learn piano and guitar with Matthew Snyman's Music School. Beginner to advanced lessons, music theory, and personalised training.">
+    <meta name="keywords" content="music lessons, piano lessons, guitar lessons, music school, music theory">
 
     <!-- External CSS file -->
     <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -16,7 +22,7 @@
     <main class="container">
 
         <!-- Navigation Menu (links to all main pages) -->
-        <nav>
+        <nav aria-label="Main Navigation">
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
@@ -25,46 +31,73 @@
         </nav>
 
         <!-- Main heading of the page -->
+
+        <header>
+      
         <h1>Matthew Snyman's Music School</h1> <!--h1 headings should for main headings-->
             
         <!-- Hero Image -->
-        <img src="img/piano-guitar.jpg" alt="piano keys & music notes"> <!---->
+        <img src="img/piano-guitar.jpg" alt="piano keys & music notes" class="hero-image" loading="lazy" decoding="async">
         <!-- 'src' = image path, 'width' = size, 'alt' = description for accesibility -->
             
         <!-- Hero section heading -->
         <h2>Unlock Your Musical Potential!</h2>
 
+        </header>
+
         <!-- Introduction paragraph -->
+
+        <section>
+
         <p>
             Welcome to Matthew’s Music School
             Established in 2024, Matthew’s Music School is dedicated to helping students of all ages discover the joy of music. Whether you're picking up an instrument for the first time or refining your skills, our lessons are designed to inspire confidence, creativity, and growth. We offer personalized guitar and piano lessons, combining both practical playing and music theory to give students a well-rounded musical education.
         </p>
 
+        </section>
+
+        <!--Search-->
+
+        <section>
+
         <!-- Section Heading -->
-        <h2>This is what we offer:</h2>
+        <h2>Search Lessons</h2>
+
+        <input
+        type="text"
+        id="lessonSearch"
+        placeholder="Search piano, guitar, or theory..."
+        aria-label="Search lessons"
+        autocomplete="off"
+        >
+
+        </section>
             
-        <!-- Guitar lessons section -->    
+        <!--Lessons-->
+
+        <section id="lessonContainer">
+
+        <article class="lesson-card">
+
         <h3>Guitar Lessons</h3>
+
+        <p>Learn guitar from beginner to advanced levels</p>
         
         <!-- Unordered list of Guitar lessons -->
         <ul>
-            <li>Beginner to advanced levels</li>
             <li>Chords, scales, and techniques</li>
             <li>Popular songs and styles</li>
             <li>Acoustic and electric guitar.</li>
         </ul>
 
-        <h3>Benefits of Learning Music</h3>
+    </article>
 
-        <p>Learning music offers many lifelong benefits, including:</p>
-        <ul>
-            <li>Improved concentration and memory</li>
-            <li>Increased creativity and self-expression</li>
-            <li>Greater confidence through performance and progress</li>
-        </ul>
-        
+    <article class="lesson-card">
+
         <!-- Piano lessons section -->
         <h3>Piano Lessons</h3>
+
+        <p>Develop piano skills through practice and theory.</p>
         
         <!-- Unordered list of Piano lessons -->
         <ul>
@@ -72,9 +105,15 @@
             <li>Sight-reading and technique</li>
             <li>Improvisation and performance skills.</li>
         </ul>
-            
+
+    </article>
+
+    <article class="lesson-card">
+
         <!-- Music theory section -->    
         <h3>Music Theory</h3>
+
+        <p>Understand how music works</p>
 
         <!-- Unordered list of Music theory lessons -->
         <ul>
@@ -83,11 +122,175 @@
             <li>Exam preparation (if required).</li>
         </ul>
 
-        <h3>Start Your Musical Journey Today</h3>
+    </article>
 
-        <p>No matter your age or experience level, it’s never too late to begin learning music. Join Matthew’s Music School and discover the joy of playing piano or guitar while developing valuable musical skills that can last a lifetime.</p>
+    <!-- Accordion -->
+
+    <section>
+
+        <h2>Benefits of Learning Music</h2>
+
+        <button class="accordion" type="button">
+
+        Why Learn Music?
+        
+        </button>
+
+        <div class="panel">
+
+        <p>Music can improve concentration, creativity, memory and confidence</p>
+
+        </div>
+        
+        <button class="accordion" type="button">
+
+            Who can join?
+
+        </button>
+
+        <div class="panel">
+
+            <p>Anyone can learn music regardless of age or experience.</p>
+
+        </div>
+
+    </section>
+
+    <!-- Gallery -->
+
+    <section>
+
+        <h2>Music Gallery</h2>
+
+        <div class="gallery">
+
+            <img src="img/piano-guitar.jpg" alt="piano keys & music notes" onclick="openLightbox(this.src)" loading="lazy">
+            <img src="img/pianokeys-musicnotes.jpg" alt="Piano keys and music notes" onclick="openLightbox(this.src)">
+        </div>
+
+    </section>
+
+    <!-- Lightbox -->
+
+    <div id="lightbox" onclick="closeLightbox()">
+
+    <img id="lightboxImage" alt="Expanded music image">
+
+    </div>
+
+    <!-- Final call to action -->
+
+    <section>
+
+        <h2>Start Your Musical Journey Today</h2>
+
+        <p>
+            Visit Our <a href="services.html">services page</a> to view our available lessons.
+        </p>
+
+        <p></p>
+
+    </section>
+
 
     </main>
+
+    <script>
+
+    // ==============================================
+    // Search Function
+    // ==============================================
+
+    const searchBox = document.getElementById("lessonSearch");
+
+    const lessons = document.querySelectorAll(".lesson-card");
+
+
+    searchBox.addEventListener("keyup", function(){
+
+    let value = searchBox.value.toLowerCase();
+
+
+    lessons.forEach(function(card){
+
+
+    let content = card.innerText.toLowerCase();
+
+
+    if(content.includes(value))
+    {
+
+    card.style.display="block";
+
+    }
+
+    else
+
+    {
+
+    card.style.display="none";
+
+    }
+
+
+    });
+
+
+    });
+
+// ==============================================
+// Accordion Function
+// ==============================================
+
+const accordion = document.querySelectorAll(".accordion");
+
+accordion.forEach(function(button){
+
+button.addEventListener("click", function(){
+
+let panel = this.nextElementSibling;
+
+if(panel.style.display==="block")
+
+{
+
+    panel.style.display="none";
+
+}
+
+else
+{
+
+panel.style.display="block";
+
+}
+
+});
+
+});
+
+// ==============================================
+// Lightbox Function
+// ==============================================
+
+function openLightbox(image)
+{
+    document.getElementById("lightbox")
+    .style.display="flex";
+
+    document.getElementById("lightboxImage")
+    .src=image;
+}
+
+function closeLightbox()
+{
+
+    document.getElementById("lightbox")
+    .style.display="none";
+
+}
+
+    </script>
 
 </body>
 </html>

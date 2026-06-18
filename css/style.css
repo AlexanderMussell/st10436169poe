@@ -85,12 +85,17 @@ nav a:hover {
     border-radius: 5px;
 }
 
+nav a:focus {
+    outline: 2px solid white;
+    outline-offset: 3px;
+}
+
 /* =======================*/
 /* 5. IMAGES              */
 /* =======================*/
 
 img {
-    width: 100%;
+    max-width: 100%;
     height: auto;
     margin-top: 10px;
     border-radius: 10px;
@@ -106,7 +111,56 @@ ul {
 }
 
 /* =======================*/
-/* 7. SERVICES GRID       */
+/* 7. INPUTS AND FORMS    */
+/* =======================*/
+
+input,
+textarea,
+select,
+button {
+    font-family: Arial, sans-serif;
+    font-size: 1rem;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+
+    margin-top: 10px;
+    margin-bottom: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* =======================*/
+/* 8. BUTTONS             */
+/* =======================*/
+
+button {
+
+    background: #333;
+    color: white;
+
+    padding: 10px 20px;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+}
+
+button:hover {
+
+    background: #555;
+
+}
+
+/* =======================*/
+/* 9. SERVICES GRID       */
 /* =======================*/
 
 /* This turns the Services section into structured layout blocks */
@@ -121,10 +175,96 @@ ul {
     background: #f4f4f4;
     padding: 15px;
     border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.service-box:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 /* =======================*/
-/* 8. RESPONSIVE DESIGN   */
+/* 10. FAQ COMPONENT       */
+/* =======================*/
+
+.faq-item {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.faq-question {
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faq-answer {
+    display: none;
+    padding: 10px 0;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.search-box {
+    margin: 20px 0;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px;
+}
+
+/* =======================*/
+/* 11. ACCORDION SYSTEM    */
+/* =======================*/
+
+.accordion,
+.accordion-title {
+    cursor: pointer;
+}
+
+.panel,
+.accordion-content {
+    display: none;
+    padding: 10px;
+    background: #f9f9f9;
+}
+
+/* =======================*/
+/* 12. LIGHTBOX SYSTEM    */
+/* =======================*/
+
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+#lightbox img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+/* =======================*/
+/* 13. UTILITIES          */
+/* =======================*/
+
+.hidden {
+    display: none;
+}
+
+/* =======================*/
+/* 14. RESPONSIVE DESIGN   */
 /* =======================*/
 
 /* Tablet view */
