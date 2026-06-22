@@ -317,6 +317,26 @@ xneelo, n.d. *Web Hosting*. [Online]
 Available at: https://xneelo.co.za/web-hosting/  
 [Accessed 2026].
 
+Website images
+Home page:
+https://pixabay.com/photos/guitar-piano-music-instrument-5056322/ (piano-guitar)
+https://pixabay.com/photos/piano-sheet-music-music-keyboard-1655558/ (pianokeys-musicnotes)
+https://pixabay.com/photos/teacher-student-guitar-learning-10163007/ - (guitarlesson)
+https://pixabay.com/illustrations/music-recorder-lesson-teacher-10167166/ - (recorderlesson)
+
+About Page:
+https://pixabay.com/photos/piano-sheet-music-music-keyboard-1655558/ - (pianokeys-musicnotes)
+
+Services page:
+https://pixabay.com/photos/piano-music-keys-exercise-pianist-5353974/ - (musickeypianopractice)
+
+Contact us
+https://pixabay.com/photos/hands-guitar-instrument-music-play-1851426/ - (handsguitarinstrument)
+
+FAQs
+https://pixabay.com/photos/sheet-music-music-notes-scrolls-7875782/ - (sheetmusicmusicnotesscrolls)
+
+
 ---
 
 ## Author
